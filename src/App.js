@@ -4,10 +4,15 @@ import Profile from './features/Profile/Profile'
 import './App.css';
 
 class App extends React.Component {
+
+  printName() {
+    alert('Welcome to React and Node Bootcamp');
+  }
+
   render() {
     return (
       <div className="App">
-        <Profile />
+        <Profile printName={this.printName} />
       </div>
     );
   }
