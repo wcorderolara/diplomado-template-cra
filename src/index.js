@@ -4,16 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Profile from './features/Profile/Profile'
-import Clock from './features/Clock/Clock'
-import { Friend } from './features/Friend/Friend'
-// import Effect from './features/Effect/Effect';
-import PicSearch from './features/PicSearch/PicSearch';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
+// import Profile from './features/Profile/Profile'
+// import Clock from './features/Clock/Clock'
+// import { Friend } from './features/Friend/Friend'
+// // import Effect from './features/Effect/Effect';
+// import PicSearch from './features/PicSearch/PicSearch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Provider store={createStore(reducers)}>
+      <App />
+    </Provider>
+    {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} >
           <Route path="clock-app" element={<Clock />} />
@@ -22,7 +28,7 @@ root.render(
           <Route path="increment-app" element={<Friend />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
   </React.StrictMode>
 );
 
